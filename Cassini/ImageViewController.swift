@@ -9,38 +9,8 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-
-    var imageURL: URL? {
-        didSet {
-            image = nil
-            if view.window != nil {
-                fetchImage()
-            }
-        }
-    }
     
-    private func fetchImage() {
-        if let url = imageURL {
-            let urlContents = try? Data(contentsOf: url)
-            if let imageData = urlContents {
-                image = UIImage(data: imageData)
-            }
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(imageView)
-        imageURL = DemoURL.stanford
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if image == nil {
-            fetchImage()
-        }
-    }
-    
+    // MARK: - UI
     
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
@@ -49,6 +19,17 @@ class ImageViewController: UIViewController {
             scrollView.maximumZoomScale = 1.0
             scrollView.contentSize = imageView.frame.size
             scrollView.addSubview(imageView)
+        }
+    }
+    
+    // MARK: - Properties
+
+    var imageURL: URL? {
+        didSet {
+            image = nil
+            if view.window != nil {
+                fetchImage()
+            }
         }
     }
     
@@ -64,7 +45,35 @@ class ImageViewController: UIViewController {
             scrollView?.contentSize = imageView.frame.size
         }
     }
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(imageView)
+        imageURL = DemoURL.standford
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if image == nil {
+            fetchImage()
+        }
+    }
+    
+    // MARK: - Metods
+    
+    private func fetchImage() {
+        if let url = imageURL {
+            let urlContents = try? Data(contentsOf: url)
+            if let imageData = urlContents {
+                image = UIImage(data: imageData)
+            }
+        }
+    }
 }
+
+    // MARK: - Extension
 
 extension ImageViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

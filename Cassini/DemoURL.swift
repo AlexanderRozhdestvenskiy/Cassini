@@ -9,6 +9,6 @@
 import Foundation
 
 struct DemoURL {
-    static let stanford = URL(string: "https://www-media.stanford.edu/wp-content/uploads/2017/03/24182714/about_landing-1.jpg")
+    static let standford = URL(string: "https://www-media.stanford.edu/wp-content/uploads/2017/03/24182714/about_landing-1.jpg")
 }
 
