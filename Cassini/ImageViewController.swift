@@ -51,7 +51,7 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(imageView)
-        imageURL = DemoURL.standford
+        imageURL = DemoURL.juno
     }
     
     override func viewWillAppear(_ animated: Bool) {
