@@ -71,6 +71,11 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="Qt7-yX-HAk"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="SOg-jn-8mc"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PaF-M5-RUB">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -86,6 +91,7 @@
                     <navigationItem key="navigationItem" id="I7l-0P-3Cg"/>
                     <connections>
                         <outlet property="scrollView" destination="SK8-Vz-lqe" id="TEr-Eo-dor"/>
+                        <outlet property="spinner" destination="PaF-M5-RUB" id="x7S-3J-p3D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,6 +149,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hal-1S-sTk"/>
+        <segue reference="Ews-sF-ND0"/>
     </inferredMetricsTieBreakers>
 </document>

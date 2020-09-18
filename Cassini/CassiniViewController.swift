@@ -8,8 +8,15 @@
 
 import UIKit
 
-class CassiniViewController: UIViewController {
+class CassiniViewController: UIViewController, UISplitViewControllerDelegate {
 
+    // MARK: - Life Cycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.splitViewController?.delegate = self
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -19,6 +26,17 @@ class CassiniViewController: UIViewController {
                 imageVC.title = (sender as? UIButton)?.currentTitle
             }
         }
+    }
+    
+    // MARK: - Methods
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        if primaryViewController.content == self {
+            if let ivc = secondaryViewController.content as? ImageViewController, ivc.imageURL == nil {
+                return true
+            }
+        }
+        return false
     }
 }
 
